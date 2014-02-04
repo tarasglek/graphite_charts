@@ -1,13 +1,3 @@
-https://graphite.mozilla.org/render?from=-60days&until=-59days&width=1800&height=900&target=stacked(sumSeries(hosts.bld-linux64-ec2-*_build_releng_*_mozilla_com.cpu.0.cpu.user))&target=stacked(sumSeries(hosts.bld-linux64-ec2-*_build_releng_*_mozilla_com.cpu.0.cpu.idle))
-
-https://graphite.mozilla.org/render?from=-60days&until=-59days&width=1800&height=900&target=stacked(scale(sum(exclude(hosts.bld-linux64-ec2-0[0-9]*_build_releng_*_mozilla_com.cpu.*.cpu.*, "(idle|wait)")),0.25))&target=stacked(scale(sum(hosts.bld-linux64-ec2-0[0-9]*_build_releng_*_mozilla_com.cpu.*.cpu.idle), 0.125))&target=stacked(scale(sum(hosts.bld-linux64-ec2-0[0-9]*_build_releng_*_mozilla_com.cpu.*.cpu.wait), 0.125))
-
-bld:
-https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=900&target=stacked(scale(sum(exclude(hosts.bld-linux64-ec2-0[0-9]*_build_releng_*_mozilla_com.cpu.*.cpu.*, "(idle|wait)")),0.00250))&target=stacked(scale(sum(hosts.bld-linux64-ec2-0[0-9]*_build_releng_*_mozilla_com.cpu.*.cpu.idle), 0.00250))&target=stacked(scale(sum(hosts.bld-linux64-ec2-0[0-9]*_build_releng_*_mozilla_com.cpu.*.cpu.wait), 0.00250))
-
-spot:
-https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=900&target=stacked(scale(sum(exclude(hosts.try-linux64-spot-0[0-9]*_try_releng_*_mozilla_com.cpu.*.cpu.*, "(idle|wait)")),0.00250))&target=stacked(scale(sum(hosts.try-linux64-spot-0[0-9]*_try_releng_*_mozilla_com.cpu.*.cpu.idle), 0.00250))&target=stacked(scale(sum(hosts.try-linux64-spot-0[0-9]*_try_releng_*_mozilla_com.cpu.*.cpu.wait), 0.00250))
-
 #WTF....steal is usually 2x overreported
 #machine efficiency: number of slaves vs their efficiency
 # subtract steal/idle/wait to see how much resources we are using more or less productively
