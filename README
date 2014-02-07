@@ -31,5 +31,5 @@ https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=90
 
 
 graphite
-https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=900&target=alias(stacked(avg(groupByNode(exclude(hosts.graphite-d*.cpu.*.cpu.*.value, "(steal|idle|wait)"), 1, "sum"))), "cpu busy")&target=alias(stacked(avg(groupByNode(hosts.graphite-d*.cpu.*.cpu.idle.value, 1, "sum"))), "idle")&target=alias(stacked(avg(groupByNode(scale(hosts.graphite-d*.cpu.*.cpu.steal.value,0.5), 1, "sum"))), "ec2 steal")&target=alias(stacked(avg(groupByNode(hosts.graphite-d*.cpu.*.cpu.wait.value, 1, "sum"))), "IO wait")&title=Graphite node efficiency 24hours
+https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=900&target=alias(stacked(avg(groupByNode(exclude(hosts.graphite6*.cpu.*.cpu.*.value, "(steal|idle|wait)"), 1, "sum"))), "cpu busy")&target=alias(stacked(avg(groupByNode(hosts.graphite6*.cpu.*.cpu.idle.value, 1, "sum"))), "idle")&target=alias(stacked(avg(groupByNode(scale(hosts.graphite6*.cpu.*.cpu.steal.value,0.5), 1, "sum"))), "ec2 steal")&target=alias(stacked(avg(groupByNode(hosts.graphite6*.cpu.*.cpu.wait.value, 1, "sum"))), "IO wait")&title=Graphite node efficiency 24hours
 
