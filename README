@@ -24,5 +24,10 @@ https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=90
 # WTF iowait AND idle is 2x overreported 2 months ago
 https://graphite.mozilla.org/render?from=-60days&until=-59days&width=1800&height=900&target=alias(stacked(avg(groupByNode(exclude(hosts.bld-linux64-ec2-0*_*_releng_*_mozilla_com.cpu.*.cpu.*, "(steal|idle|wait)"), 1, "sum"))), "cpu busy")&target=alias(stacked(avg(groupByNode(scale(hosts.bld-linux64-ec2-0*_*_releng_*_mozilla_com.cpu.*.cpu.idle,0.5), 1, "sum"))), "idle")&target=alias(stacked(avg(groupByNode(scale(hosts.bld-linux64-ec2-0*_*_releng_*_mozilla_com.cpu.*.cpu.steal,0.5), 1, "sum"))), "ec2 steal")&target=alias(stacked(avg(groupByNode(scale(hosts.bld-linux64-ec2-0*_*_releng_*_mozilla_com.cpu.*.cpu.wait,0.5), 1, "sum"))), "IO wait")&title=m3.xlarge builder efficiency 2months ago(number of slaves broken due to doublecounting)
 
+buildbot
+https://graphite.mozilla.org/render?from=-24hours&until=now&width=1800&height=900&target=alias(scale(sum(sum(groupByNode(exclude(hosts.buildbot-master*_us*.cpu.*.cpu.*, "(steal)"), 1, "sum")),sum(groupByNode(scale(hosts.buildbot-master*_us*.cpu.*.cpu.steal,0.5),1,"sum"))),0.01), "number of slaves")&target=alias(stacked(avg(groupByNode(exclude(hosts.buildbot-master*_us*.cpu.*.cpu.*, "(steal|idle|wait)"), 1, "sum"))), "cpu busy")&target=alias(stacked(avg(groupByNode(hosts.buildbot-master*_us*.cpu.*.cpu.idle, 1, "sum"))), "idle")&target=alias(stacked(avg(groupByNode(scale(hosts.buildbot-master*_us*.cpu.*.cpu.steal,0.5), 1, "sum"))), "ec2 steal")&target=alias(stacked(avg(groupByNode(hosts.buildbot-master*_us*.cpu.*.cpu.wait, 1, "sum"))), "IO wait")&title=m1.large(buildbot) tester efficiency 24hours
+
+
+
 
 
